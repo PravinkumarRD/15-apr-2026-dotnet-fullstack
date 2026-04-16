@@ -1,0 +1,269 @@
+S.O.L.I.D. Principles
+
+OOP - Object Oriented Programming
+
+Object [Properties/Functions/Identity/Events]
+
+1) Abstraction
+2) Encapsulation
+	Class - [Access Modifiers - Private, Protected, Public, Internal, Protected Internal]
+	Types [Abstract, Concrete, Sealed/Final, Static, Anonymous Type, Partial class]
+3) Inheritance [Reusability]
+	Generalization - To - Specialization [IS-A]
+	Person <= Customer <= PrimeCustomer
+	[Abstract]<= Concrete <= Sealed
+
+	Types of Inheritances - Single, Multiple [Not supported], Multilevel, Hierarchical, Hybrid
+
+HAS-A Relationship - [O/RM - Object Relation Mapper]
+			1) Association
+			2) Composition
+			3) Aggregation 
+Association - Uses-A Relationship
+	Association is a Uses-A relationship where a class uses another class to perform some operation. One class provides services to another class
+	For Example - Employee class and EmployeeRepository class
+
+	class Employee{
+		...
+	}
+	class EmployeeRepository{
+		public List<Employee> GetAllEmployees(){
+
+		}
+		public int InsertEmployee(Employee employee){
+		
+		}
+	}
+
+Composition - Has-A Relationship
+	One class HAS-A reference to another class as an instance property. In this, child class cannot exist without parent class. Deleting parent class also deletes the child class.
+	For Example - Employee HAS-An Address [Address class can not exist if Employee class is not there]
+
+	class Address{
+		RoadNo
+		RoadName
+		Area
+		BuildNo
+		FlatNo
+	}
+
+	class Employee{
+		public Address PermanentAddress { get; set; }
+	}
+
+Aggregation - Another category of HAS-A Relationship
+	One class HAS-A reference to another class as an instance property. However, both classes can exist independently.
+	For Example - Employee HAS-A Department [Here, department can exist independently]
+
+	class Employee{
+		public Department EmpDepartment {get; set;}
+	}
+
+	Relationships Between Entities - 
+		1) One-To-One
+		2) One-To-Many
+		3) Many-To-Many
+
+
+
+4) Polymorphism
+	I) Overloading/Compile Time/Static/Early Binding
+	II) Overriding/Runtime/Dynamic/Late Binding
+class BasicMath{
+	int add(int I)
+	int add(int i, int j)
+	double add(double i, double j)
+	virtual int Minus(int I, int j){ return i-j;}
+	
+}
+
+class AdvanceMath : BasicMath{
+	//Shadowing
+	public new int add(int i, int j) { return i + j +100; }
+	//Overloading
+	int add(int i, int j, int k) { ...}
+	override int Minus(int I, int j){ return (i-j) + 1000;}
+}
+
+BasicMath obj=new AdvanceMath();
+obj.Minus(2000,1000); //2000
+obj.add(100,200); //300
+
+
+
+
+partial class Maths{
+
+}
+
+var CustomerOrder = new {  };
+
+
+How to use class?
+	1) By creating an instance of a class
+	2) By extending the class
+	3) ClassName.Method [Static]
+
+class Object{
+
+}
+
+class Person{
+	private int a;
+	protected int b;
+	public int c;
+	public Person(){
+		a=100;
+		a++;
+	}
+}
+
+Person p1=new Person();
+p1.c;
+
+class Customer : Person{
+	b
+	c
+}
+
+SOA - Service Oriented Architecture [Web Services]
+
+interface NormalCustomer{
+	normalFunction();
+}
+
+interface PrimeCustomer:NormalCustomer{
+	primeVideo();
+	primeMusic();
+	primeDelivery();
+}
+
+interface Lionsgate:PrimeCustomer{
+	loinsGateSubscription();
+}
+
+class AmazonService : Lionsgate{
+	normalFunction(){...}
+	primeVideo(){...}
+	primeMusic(){...}
+	primeDelivery(){...}
+	loinsGateSubscription(){...}
+
+}
+
+
+NormalCustomer normal = new AmazonService();
+normal.normalFunction();
+
+PrimeCustomer prime=new AmazonService();
+prime.normalFunction();
+prime.prime*.*();
+
+Lionsgate all=new AmazonService();
+all.normalFunction();
+all.prime*.*();
+all.lions...
+
+
+
+Constructors - 
+	1) Default
+	2) Parameterized
+	3) Copy
+	4) Static
+
+Collections - 
+	1) Array - 1-D, 2-D..., Jagged Array
+	2) Collections - 
+		i) Weakly Typed Collections
+			ArrayList, Stack, Queue, Hashtable
+				Every collection stores the data in an object and returns the data in an object
+		2) Generics [Template Classes/Methods/Preperties] Strongly Typed Collections
+			List<T>, Stack<T>, Queue<T>, Dictionary<TKey,TValue>
+			
+
+
+LINQ - Language Integrated Query
+	1) OLINQ - LINQ-To-Object
+	2) XLINQ - LINQ-To-XML
+	3) DLINQ - LINQ-To-Data
+
+LINQ will work with every data source as long as the data source returns IEnumerable<T>/IQuerable<T>
+
+
+SQL - 
+
+select */col1, col2, col3, ... from table_name
+where condition
+group by clause
+having condition
+order by exp;
+
+LINQ - 
+
+[Select * from TableName]
+
+from variable in collection
+select variable;
+
+[Select col1,col2 from TableName]
+
+from variable in collection
+select new className {prop1=variable.prop1, prop2=variable.prop2, prop3==variable.prop3};
+
+[Select * from TableName where condition]
+
+from variable in collection
+where variable.prop=="value"
+select variable;
+
+
+[Select * from TableName order by exp]
+
+from variable in collection
+orderby variable.prop descending
+select variable;
+
+
+Group by
+
+from variable in collection
+group variable by variable.prop into groupVariable
+select new {city = groupVariable.key, count = groupVariable.groupFunc()}
+
+
+Join
+from variable1 in collection1
+join
+variable2 in collection2
+on variable1.prop equals variable2.prop
+variable3 in collection3
+on variable2.prop equals variable3.prop
+select new {}
+
+
+
+
+Delegates & Events
+
+Interview Delegate [Basket]
+
+Selected
+Rejected
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

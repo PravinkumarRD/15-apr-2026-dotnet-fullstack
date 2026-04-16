@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="ClassTypes/ClassTypes.csproj" />
+  <Project Path="ConstructorExamples/ConstructorExamples.csproj" />
+  <Project Path="ExtensionMethodExample/ExtensionMethodExample.csproj" />
+  <Project Path="InterfaceExamples/InterfaceExamples.csproj" />
+  <Project Path="PolymorphismExamples/PolymorphismExamples.csproj" />
+</Solution>

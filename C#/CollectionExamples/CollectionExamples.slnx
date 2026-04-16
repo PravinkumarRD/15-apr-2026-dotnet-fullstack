@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ArrayExamples/ArrayExamples.csproj" />
+  <Project Path="GenericCollections/GenericCollections.csproj" />
+</Solution>
