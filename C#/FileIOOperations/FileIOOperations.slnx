@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ConsoleExplorer/ConsoleExplorer.csproj" />
+  <Project Path="FileClassExamples/FileClassExamples.csproj" />
+  <Project Path="StreamHandlerExample/StreamHandlerExample.csproj" />
+</Solution>

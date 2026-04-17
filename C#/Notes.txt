@@ -251,6 +251,103 @@ Interview Delegate [Basket]
 Selected
 Rejected
 
+File IO
+	System.IO [Namespace]
+		File [Static Methods]
+		DriveInfo [Information about the drives]
+		DirectoryInfo [Anything related to Directory]
+		FileInfo [Information about the file]
+		Directory
+		StreamReader
+		StreamWriter
+		FileStream
+
+
+Year 2010 - TPL [Task Parallel Library]
+
+	Task - Void
+	Task<T> - Return T
+2013 - async/await methods
+
+Thread [Native [Operating System]/Green[VMs/Runtimes]]
+
+Operations - 
+	1) CPU Bound Operations [Synchronous/Non Blocking Operations]
+		L1, L2, L3 Cache
+		RAM
+	2) IO Bound Operations [Asynchronous/Blocking Operations]
+		Disk
+		Network
+
+
+
+Action/Action<T> Void
+Func<T> - Return
+Predicate - Conditional [True/False]
+
+
+
+()=>1000;
+()=>{return 1000;}
+
+Purchase Order System
+	Category, Product, Supplier, Shipper, Customer, Order, OrderDetail, Invoice
+
+CRUD operations 
+	
+interface ICatgeoryCrud{
+	getAllCategories(){
+		//all the cats
+	}
+	getCategoryById(id){
+		//all the cats
+	}
+	insert(cat){
+
+	}
+	update(...){}
+	delete(id){...}
+}
+
+
+Generics [Interface/Class/Method/Property]
+
+interface ICommonRepository<T>{
+	Task<List<T>> GetAllAsync();
+	Task<T> GetDetailsAsync(int id);
+	Task AddAsync(T item);
+	Task UpdateAsync(int id, T item);
+	Task DeleteAsync(int id);
+}
+
+
+class CommonRepository<T> : ICommonRepository<T> where T:class{
+	//Generic Data Access objects/Data Context/DbContext
+	public async Task<List<T>> GetAllAsync(){
+		await logic...
+	}
+	public async Task<T> GetDetailsAsync(int id){
+
+	}
+	public async Task AddAsync(T item){
+
+	}
+	public async Task UpdateAsync(int id, T item){
+
+	}
+	public async Task DeleteAsync(int id){
+
+	}
+}
+
+
+
+
+
+
+
+
+
 
 
 

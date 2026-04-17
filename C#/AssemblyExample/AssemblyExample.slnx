@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Bajaj/Bajaj.csproj" />
+  <Project Path="India/India.csproj" />
+  <Project Path="MH/MH.csproj" />
+</Solution>
