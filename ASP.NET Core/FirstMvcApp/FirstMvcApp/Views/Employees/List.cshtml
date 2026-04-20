@@ -1,0 +1,36 @@
+﻿@model List<Employee>
+@{
+    Myclass myclass = new Myclass();
+}
+@{
+    ViewData["Title"] = "Bajaj Employees List";
+}
+
+<h1>Welcome To Bajaj Employees List!</h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Employee employee in Model)
+        {
+            <tr>
+                <td>@employee.EmployeeId</td>
+                <td>@employee.EmployeeName</td>
+                <td>@employee.City</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            alert("Welcome To Bajaj Employees List!");
+        });
+    </script>
+}

@@ -1,0 +1,118 @@
+Why MVC?
+1) It is an architectural style implementation
+2) Loose coupling - Separation of Concern 
+3) Supports TDD [Test Driven Development]
+4) Easy testing
+5) Conditional Rendering
+6) Precise control over HTML
+7) Complete control over Application Request Lifecycle [ASP.NET MVC Core]
+8) In MVC, 
+	i) Controller can work alone
+	ii) Controller can work only with model
+	iii) Controller can work only with View
+	iv) Controller can work with View and Model
+9) Reusability
+
+ASP.NET Core - 
+	1) State management
+	2) Custom Middleware configuration
+	3) Authentication and Authorization
+	4) Caching [Data and Pages]
+	5) Partial View support
+	6) Data Access [ADO.NET (old), EF Core - ORM]
+	7) Global Error Handling
+	8) CORS configuration
+	...
+
+
+
+ASP.NET Core MVC Application Request Lifecycle [Collection of Middleware from where your request will go through]
+
+ASP.NET offers number of middleware out-of-the-box and you can also write your own middleware called custom middleware
+
+Begin Request Application Lifecycle
+
+
+Middleware => Function => (Request, Response, Next)
+
+
+Routes [A unique path to a specific resource]. Every web application contain collection of routes
+
+What is a controller?
+It is a special class which contain actions methods. The action method is the ultimate destination for your request where your request will be processed and the response will be generated
+
+Route Address/Path
+	https://localhost:8937/{controller=Home}/{action-method=Index}/{id?}
+	
+	[Default Route] https://localhost:8937 [With Default Controller and Default Action Method]
+       [Specific Route] https://localhost:8937/Employees [Employees controller with default action method]
+       [Specific Route] https://localhost:8937/Employees/List
+[Dynamic Route]	https://localhost:8937/Employees/Details/1020
+[Dynamic Route]	https://localhost:8937/Employees/Details?id=1020
+
+
+Request => Routes Collection => Controller => Action Method
+
+By default, ASP.NET Web Application runs on Kestrel Web Server
+
+Controller class file extension is [.cs]
+Model [.cs]
+View [.cshtml]
+	You can write C# + HTML code which will be processed on Server. This is where we do model binding in our View [Html elements]
+
+Html - Elements/tags
+C# - @ [In CSHTML page is an identification of C# code]
+	For Example - @foreach(...){...}, @if(condition) {...}
+		<h1>@ViewBag.Title</h1>
+		@using some-namespace
+		@model Employee
+
+
+https://localhost:7826/Employees
+https://localhost:7826/Employees/List
+
+
+public class EmployeesController : Controller{
+
+	public IActionResult Index(){
+		return View();
+	}
+	public IActionResult List(){
+		If(zone="East")
+			return View("EastList");
+		else
+			return View("WestList");
+	}
+}
+
+
+
+Views => Employees => Index.cshtml/List.cshtml
+Views => Employees => Index.cshtml/WestList.cshtml
+Views => Employees => Index.cshtml/EastList.cshtml
+
+
+Views => Shared => Index.cshtml/List.cshtml
+
+Razor is a View Syntax which combines Html and C# code together! C# code starts with @ sign
+
+
+Layout - Page
+
+<html>
+	<head>
+		<meta...
+		<title></title>
+		<Link .../> CSS linking
+		
+	</head>
+
+	<body>
+		<header><Navbar>...</header>
+		@RenderBody() //Helper Methods
+		<footer>
+			...
+		</footer>
+
+	</body>
+</html>
