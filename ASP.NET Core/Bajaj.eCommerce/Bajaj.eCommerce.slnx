@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Src/">
+    <Project Path="Bajaj.eCommerce.Dal/Bajaj.eCommerce.Dal.csproj" />
+    <Project Path="Bajaj.eCommerce.Entities/Bajaj.eCommerce.Entities.csproj" />
+    <Project Path="Bajaj.eCommerce.Mvc.UI/Bajaj.eCommerce.Mvc.UI.csproj" />
+    <Project Path="Bajaj.eCommerce.Repositories/Bajaj.eCommerce.Repositories.csproj" />
+  </Folder>
+  <Folder Name="/Tests/" />
+</Solution>

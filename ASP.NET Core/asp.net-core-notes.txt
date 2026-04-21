@@ -1,3 +1,6 @@
+Code Pen URL - https://codepen.io/pravinkumarcode/pen/zYLZwep
+
+
 Why MVC?
 1) It is an architectural style implementation
 2) Loose coupling - Separation of Concern 
@@ -116,3 +119,153 @@ Layout - Page
 
 	</body>
 </html>
+
+eCommerce Application [Shoes/Products]
+
+Structure of the application
+
+Solution
+	Bajaj.eCommerce
+		MVC Project - Bajaj.eCommerce.UI [Controllers/Views/Authentication/Authorization/Caching/State Management/DTOs/...]
+		Class Library - Bajaj.eCommerce.Entities [Models]
+		Class Library - Bajaj.eCommerce.Repositories [Generic Repository Pattern]
+		Class Library - Bajaj.eCommerce.Dal [EF Core DbContext Implementation]
+			
+
+Introduction to Entity Framework Core [EF Core]
+
+Entity Framework Core (EF Core) is Microsoft’s modern, lightweight, cross‑platform Object‑Relational Mapper (ORM) that lets .NET developers work with databases using C# objects instead of raw SQL. It simplifies data access, supports multiple database providers, and is widely used in enterprise, cloud‑native, and layered architectures
+
+Key Features of EF Core
+1) Cross‑platform: Works on Windows, Linux, and macOS.
+
+2) Lightweight & Extensible: Designed to be modular, with support for plugins and customizations.
+
+3) Database Provider Support: Works with SQL Server, PostgreSQL, MySQL, SQLite, Oracle, Cosmos DB, and more.
+
+4) LINQ Integration: Query databases using strongly typed LINQ expressions instead of SQL.
+
+5) Change Tracking: Automatically tracks modifications to objects and updates the database efficiently.
+
+6) Migrations: Provides a way to evolve database schema alongside application code.
+
+7) Performance Optimizations: Includes compiled queries, batching, and caching for speed.
+
+
+Core Concepts
+Model
+Defined using entity classes (C# classes mapped to tables).
+Relationships (one‑to‑many, many‑to‑many) are expressed via navigation properties.
+DbContext
+Represents a session with the database.
+Provides APIs for querying (DbSet<T>) and saving data.
+
+Example - 
+	public class AppDbContext : DbContext
+	{
+	    public DbSet<Customer> Customers { get; set; }
+	}
+
+Querying
+Use LINQ to query:
+Example
+	var customers = context.Customers
+           .Where(c => c.City == "Pune")
+           .ToList();
+
+Relationships
+
+	In this scenario - Navigation Properties and Primary Key, Foreign Keys
+
+One-To-One
+
+1 User will have 1 Profile
+
+class User {
+	[Key]
+	public int UserId {get; set;}
+	public string Email {get;set}=string.Empty;
+	public Profile Profile {get;set;}//Navigation Property
+
+	public ICollection<Order> Orders{get; set;}
+}
+
+
+class Profile{
+	[Key]
+	public int ProfileId {get; set;}
+
+	public int UserId {get; set;}
+	public User User {get; set;}
+	
+}
+
+//One-To-Many
+
+class Order{
+	[Key]
+	public int OrderId {get; set;}
+
+	public int UserId {get; set;}
+	public User User {get; set;}
+
+}
+
+
+//May-To-Many
+class Store{
+	[Key]
+	public int StoreId {get; set;}
+	public ICollection<Product> Products{get; set;}	
+
+}
+
+class Product{
+	[Key]
+	public int ProductId {get; set;}
+	public ICollection<Store> Stores{get; set;}
+
+}
+
+
+
+EF Core Offers multiple options to work with new or existing database
+
+1) Database First Modeling/Approach
+	Existing database and you will generate models using existing database tables
+2) Code First Modeling/Approach
+	You will design tables using models/entities in your database
+
+
+Connection String - 
+	Server=localhost
+
+MySQL
+	Data Source=MSI;Database=BajajEcomDbApr26;Port=3306;User Id=root;Password=root;
+
+
+Migration Commands
+	1) Add Migration
+		First time
+			Add-Migration -Name InitialMigration
+			Update-Database
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
