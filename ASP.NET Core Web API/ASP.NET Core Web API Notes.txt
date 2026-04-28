@@ -1,0 +1,58 @@
+Introduction to ASP.NET CORE Web API
+
+Cross Platform Communication
+	Web Services - SOAP - [Simple Object Access Protocol] [Http + Xml]
+	WSE - Web Service Enhancements [Security]
+
+.NET to .NET Communication
+	Remoting [IPC, TCPIP, HTTP]
+
+.NET Framework 3.0 [2007]
+	Windows Presentation Foundation Service [WPF]
+	Windows Communication Foundation Service [WCF] [IPC, TCP/IP, HTTP, HTTPS, P2P, SOAP,...]
+	Windows Workflow Foundation Service
+.NET Framework 4.0 [2010]
+	Web Invoke Endpoint [JSON]
+
+Web API Development [RESTFul Architecture]
+	Representational State Transfer
+
+Rules to follow for implementing REST APIs
+	1) The resources will be accessed using Only URIs
+	2) Works with HTTP Protocol
+	3) They don't have built-in encryption
+	4) Perform CRUD operations using HTTP Nouns/Methods [GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS]
+	5) It should not persist the state during request and response lifecycle [No Session]
+	6) No Views. It only works with the data
+	7) Cacheable 
+	8) Supports Versioning 
+
+ASP.NET Core Web API support - 
+	1) Controller based development [Monolithic Development]
+	2) Minimal API Development [Microservices Development] [Method/Function]
+
+HTTP Protocol - 
+	GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS
+
+
+Head - is similar to get method except it does not return body like get. It is used for verification purpose like does resource exist, preflight requests, etc.
+
+Options - Used for checking CORS and Http methods like GET/POST/PUT/DELETE ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	

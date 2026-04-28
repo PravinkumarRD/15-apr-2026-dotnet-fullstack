@@ -1,0 +1,6 @@
+@ApiWithAdoDotNet_HostAddress = http://localhost:5199
+
+GET {{ApiWithAdoDotNet_HostAddress}}/api/categories/30
+Accept: application/json
+
+###

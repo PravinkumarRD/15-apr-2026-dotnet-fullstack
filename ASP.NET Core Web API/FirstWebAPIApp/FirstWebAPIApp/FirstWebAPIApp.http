@@ -1,0 +1,6 @@
+@FirstWebAPIApp_HostAddress = http://localhost:5014
+
+GET {{FirstWebAPIApp_HostAddress}}/api/Customers
+Accept: application/json
+
+###
