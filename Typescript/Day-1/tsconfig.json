@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "outDir": "dist",
+        "noEmitOnError": true,
+        "strict": true,
+        "target": "es2025"
+    }
+}

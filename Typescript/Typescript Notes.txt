@@ -1,0 +1,57 @@
+What is Typescript?
+	1) It is a superset of JavaScript
+	2) It is a strongly typed language
+	3) It compiles the code into plain JavaScript for a given ECMAScript Version
+	4) Developer Language
+
+TSC.exe [Compiler of Typescript] It transpiles the code of Typescript
+
+	Transform + Compile = Converting/Transforming Typescript code into JavaScript
+
+	Typescript => TSC.exe => JavaScript
+
+	Typescript compiler is configurable [tsconfig.json/command line arguments]
+
+Official Site - https://www.typescriptlang.org/
+
+Why Typescript [30+ question for answering this question]
+
+1) It has new types
+2) Support strong typing along with Type inference
+3) Supports OOP features
+4) Interface support
+5) Generics
+6) Meta programming
+
+
+Step to get typescript on your machine - 
+
+	1) Install Node JS LTS version which will come with NPM [Node Package Manager]
+	2) Run below commands - 
+		node -v
+		npm -v
+	3) Install Typescript globally on your machine
+		npm install -g typescript
+		typescript -v
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
