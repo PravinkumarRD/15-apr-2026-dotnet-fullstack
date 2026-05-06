@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "strict": true,
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "target": "ES2022",
+        "strictPropertyInitialization": false,
+        "experimentalDecorators": true
+    }
+}

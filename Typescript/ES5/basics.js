@@ -45,7 +45,7 @@ console.warn(result.next());
 console.warn(result.next());
 console.warn(result.next());
 
-function* orderNumber(){
+function* orderNumber() {
   yield 1000;
   yield 2000;
   yield 3000;
@@ -54,3 +54,16 @@ function* orderNumber(){
 for (const ono of orderNumber()) {
   console.warn(ono);
 }
+
+function parent(sender) {
+  console.log('Parent Function Execution Started!')
+  let message = "Parent Function Message!";
+  return function(){
+    return `${sender} has send the message ${message}`;
+  }
+}
+
+var output=parent("Pravinkumar R. D.");
+console.log('One');
+console.log('Two')
+console.log(output());

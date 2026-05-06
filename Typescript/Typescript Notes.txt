@@ -35,6 +35,81 @@ Step to get typescript on your machine -
 		typescript -v
 
 
+Day - 2
+
+Object Oriented Programming - 
+	1) Abstraction
+	2) Encapsulation
+	3) Inheritance
+	4) Polymorphism
+
+
+
+In ES6 [2015], we can create class with class keyword. But it still does not support access modifies in ECMAScript classes.
+
+	Private members are declared using # symbol and these private members are declared using _ notation. For example #_socialId;
+	Public members are without #. For example, employeeId; [This is a public members]. Constructor is written using constructor keyword
+	For example - 
+		class Employee{
+			constructor(fname,lname,city){
+				this.firstName=fname;
+				this.lastName=lname;
+				this.city=city;
+			}
+			firstName;
+			lastName;
+			city;
+			printEmployeeInfo(){
+				return `Employee ${this.firstName} ${this.lastName} lives in city ${this.city} !`;
+			}
+		}
+
+Typescript class - 
+	1) Write class using class keyword
+	2) Typescript classes support access modifiers [Private, Public and Protected]
+
+Class Types [Abstract/Concrete/Sealed or final class]
+
+1) CJS - Common JS Module System [Node JS]
+2) AMD - Asynchronous Module Definition
+3) UMD - Universal Module Definition
+4) ESM - ECMAScript Module System
+
+
+How ESM works?
+
+1) Resolve the dependencies
+2) Load the dependencies [Modules are loaded exactly once]
+3) Execute the dependencies
+
+
+Main => Basic-Math => Advance-Math [Module Resolution] 
+Advance Math => Basic Math => Main [Module Loading and Execution]
+
+Module Resolution and loading can be done by the browser
+Compiler - Typescript
+bundling systems - Webpack/Vite/...
+
+
+Exporting functionalities - 
+	1) Default Export - Per module you can have only one export as default export
+	2) Named Export - You can have as many named exports as you want
+
+
+Angular 
+
+
+Component is metadata [Function - Simple/Factory]
+
+@Pipe()
+@Inject()
+@Component() - is a decorator
+class App{
+	@Input() prop1
+	@Output() prop2
+}
+
+
 
 
 
