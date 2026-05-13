@@ -1,0 +1,381 @@
+Why Angular?
+
+1) It is a modular framework
+	@angular/core, @angular/compiler, @angular/animations, ...
+2) One framework for [Web/Desktop/Mobile] application development
+3) Performance and Speed
+4) You can also develop your application in modular way
+5) It helps to achieve eager loading and lazy loading of your application contents
+6) Angular application can be developed using multiple languages
+	[Typescript/Dart]
+7) Angular offers JIT compilation and AoT - Ahead-of-Time Compilation
+8) Ivy Rendering Engine
+9) You can develop SPA - Single Page Application using Angular
+10) Support Routing using @angular/router
+11) Angular supports component based development [It also provides number in-built components]
+12) Angular supports directives [In-built and Custom]
+13) Angular pipes [Data Formatting - In-built and Custom]
+14) Service implementation [Reusability of Logic and Data] [In-built and Custom]
+15) IoC [Injector Container] and Dependency Injection capabilities out-of-the-box
+	Constructor/Function injection [inject(myService)]
+16) HTTP Support [CRUD - GET/POST/PUT/DELETE] @angular/common/http
+	[Http Service][Interceptors - Request and Response]
+17) RxJS - Reactive Extensions for JavaScript library
+	[Pattern - Observable-Observer, RxJS offers number of operators] [Synchronous/Asynchronous]
+18) Using Angular you can develop - 
+	I) Application (II) Library
+19) Angular Material Library
+	@angular/material
+20) Angular Elements
+	Using Angular components in Non-Angular [React/Html/Vue] applications
+21) Angular Rich Forms
+	I) Template Driven Forms
+	II) Reactive Forms
+22) Rich data binding support
+	[One-Way (Source-To-Destination/Destination-To-Source)/Two-Way/One-Time]
+23) Old Versions of Angular [Zone.js] library
+24) CDC - Change Detection Cycle
+25) Signals -  Zoneless Change Detection
+26) Jasmine Testing framework
+27) Test runner tool - Karma
+28) Angular offers SSR - Server Side Rendering [SEOs]
+29) Micro-Frontend Development
+30) PWA - Progressive Web Application development
+31) Angular CLI tool
+	@angular/cli
+		ng cli tool
+32) Internationalize/Globalization support with i18N library
+33) Earlier old versions of Angular worked with NgModule - 
+	Today we work with standalone development -
+	  By default, Angular offers standalone - [Components/Pipes/Directives] development
+34) Offered Control Follow Statements [Earlier we used directives for the same]
+	Earlier - *ngFor/*ngIf/*ngSwitch [Directives]
+	Today - @if { }/@if-else { }/@switch { }/@for { } - Control flow statements
+35) Deffered Loading of the components [Lazy]
+
+
+How to create first Angular application - 
+
+Step - 1 - Install Angular CLI globally on you machine using NPM
+		npm install -g @angular/cli
+Step - 2 - Check CLI installation and its version along with commands
+		ng v
+		ng --help
+Step - 3 - Create new workspace for Angular
+
+		ng new first-ng-app [Angular Workspace Name]
+			Choose CSS as default stylesheet
+			SSR/SSG - No
+			AI tool - None
+
+		cd first-ng-app
+
+		ng serve or ng serve -o
+
+	This will build your Angular application and run it on development web server which you can browser on PORT : 4200
+
+
+Angular Application Bootstrapping Process - 
+
+
+
+
+Major Building Blocks of Angular Framework are classes [Typescript class]
+
+	1) Component
+	2) Service
+	3) Pipe
+	4) Directive
+
+	...
+
+@angular/core provides number of metadata. These metadata tells angular how to process a particular class in Angular context. Each metadata is a factory function which takes a parameter and in most of the cases, this parameter is an object
+
+@metadata({
+	key:value,
+	key:value,
+	....
+})
+
+
+@Component({
+	...
+})
+class App{
+
+}
+
+@Directive(...)
+class Highlighter{
+
+}
+
+@Pipe({...})
+class DateFormatter{
+
+}
+
+@Injectable({...})
+class Employee{
+
+}
+
+
+
+
+
+Introduction to Component 
+
+
+import { Httpclient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { EmployeeService } from './employee-service';
+
+@Component({
+	selector:'app-root',
+	template:"<h1>.......</h1><hr/><h6>........</h6>"
+	template:`
+		<div>
+			<h1>.......</h1>
+			<hr/>
+			<h6>.......</h6>
+	`
+	or
+	templateUrl:'./relative-path-of-.html-file',
+	styleUrl:'./relative-path-of-.css-file',
+	styleUrls:['./relative-path-of-.css-file','./relative-path-of-.css-file',...],
+	imports:[Load Dependencies,http dependency, FormsModule, MultiLingualPipe],
+	providers:[D.I Services/EmployeeService]
+})
+
+	Component Template
+		i) In-line Template : template:'html/css...' or "html/css...", template:`html/css multiline..`
+			a) Single Line Template - single quote, double quote
+			b) Multiline Template - Backtick syntax template
+		ii) Linked/External Template - templateUrl:'./app.html'
+			Separate HTML page
+
+	Use inline template if you have 2-3 lines of code
+	Use linked/external template when you have more than 3 lines of code
+
+Introduction to Angular Data Binding - 
+
+1) One-Way - 
+	a) Source-To-Destination
+		i) Interpolation Binding Syntax [String Binding]
+			{{expression}}
+		ii) Property Binding Syntax [Different types of data type binding]
+			[Dom-Property]
+
+	b) Destination-To-Source
+		Event Binding - (event)="function()"
+		
+		<input (keypress)="change()"> [Angular]
+
+		<input onchange="change()"> [JavaScript]
+
+2) Two-Way
+
+
+
+
+Communication Between Parent and Child Component - 
+
+1) Paren to Child - using property binding. Use @Input() metadata to decorate child component property which you can use as an attribute of child component selector. This attribute then can access parent component properties data
+
+2) Child to Parent - 
+	a) Declare the custom event
+	b) Raise the event by emitting the data
+	c) Decorate custom event with @Output() metadata
+	d) Call parent function with custom event binding syntax in your child component selector where parent will receive the data sent by child component as a payload
+
+To declare custom event, @angular/core package offers EventEmitter<T>
+	
+	@Output() sendMessage:EventEmitter<string> = new EventEmitter<string>();
+
+
+Data Formatting Angular Pipes
+
+1) In-built Pipes [@angular/common - CommonModule]
+2) Custom Pipes
+3) Third-party Pipes
+
+
+How to use pipes?
+
+	property | pipeName
+	property | pipeName:'arg1':'arg2'
+
+
+How does pipe work internally?
+
+import { Pipe, PipeTransform } from '@angular/core';
+
+
+@Pipe({
+	name:'date'
+})
+export class DatePipe implements PipeTransform{
+
+	transform(value:unknown, ...args:unknown[]): unknown{
+		format value logic
+		format value logic based on argument value
+
+	}
+}
+
+
+startDate|date:'medium'
+
+
+Service In Angular application
+
+1) Separation of Concern 
+2) Easy Testing
+3) Reusability of Logic and Data
+4) Using services via Dependency Injection
+	Angular Framework comes out-of-the-box with IoC [Injector]
+5) Scoping of services - 
+	1) Component Level hierarchy 
+	2) Application Level
+	3) Platform Level
+6) Implementation of Singleton pattern
+
+AJAX in Angular
+
+Angular offers in-built support for HTTP Calls [GET/POST/PUT/DELETE]
+	@angular/common/http
+		HttpClientModule [Old Way]
+			HttpClient - Service
+
+	app.config.ts file [New Way]
+		providers:[
+			provideHttpClient()
+		]
+
+		We can use HttpClient service via dependency injection anywhere in our application
+
+
+
+HttpClient Service [Class]- 
+
+	1) get()/get<T>(url, requestConfig:{headers,data,methods,...}) = Observable<T>
+	2) post()/post<T>(url, data ,requestConfig:{headers,data,methods,...}) = Observable<T>
+	3) put()/put<T>(url, data ,requestConfig:{headers,data,methods,...}) = Observable<T>
+	4) delete()/delete<T>(url, data ,requestConfig:{headers,data,methods,...}) = Observable<T>
+
+What is an Observable? From where is comes? How does it work internally?
+
+Angular Component Lifecycle?
+	How does component get executed internally in angular framework?
+
+	1) Angular creates an instance of your component
+	2) Execute number of Lifecycle Hooks during the component execution process
+	3) Angular destroy the component instance. [Removing the component from the DOM]
+
+
+
+Single Page Application [SPA] Development
+
+	1) You will render the default webpage of your application along with the required contents in form of components, directives, pipes, services, models, ...
+	2) Rest of the contents are loaded on demand [Lazy Loading] based on user's requirements
+
+
+	@angular/router [contains the unique address for all the resources which you want to load eagerly/lazily]
+	It also helps to maintain the browser history
+
+	What is offered by Angular Router Library? [@angular/router]
+
+	1) Route declaration 
+		a) Default Route [http://localhost:4200] [Renders Default Component - EcomHome]
+		b) Named Route [http://localhost:4200/home] [Renders Default Component - EcomHome]
+		c) Named Route [http://localhost:4200/categories] [Renders Default Component - CategoriesList]
+		d) Named Route [http://localhost:4200/products] [Renders Default Component - ProductsList]
+		e) Parameterized/Dynamic Route [http://localhost:4200/products/3782] [Renders Default Component - ProductDetails]
+	2) Router Outlet - Component
+		<router-outlet></router-outlet>
+	3) It offers declarative route attributes
+	4) It also offers programmatic redirection support
+	5) It offers route protection [Route Guards]
+	6) Pass data with routes [Parameters/Query String]
+	7) Eager Loading and Lazy loading of components
+	8) It offers services to read URLs and their parts [ActivatedRoute]
+	...
+
+
+
+Angular Component Template - 
+	Template Reference Variable
+		#variableName
+
+Angular Forms - 
+
+	1) Template Driven Form - @angular/forms - FormsModule =>[(ngModel)] - Two-Way data binding
+		a) It supports validations
+		b) Controlled by Angular
+
+	2) Reactive Form
+		@angular/forms - ReactiveFormsModule [Directives]
+			FormGroup, FormControl, Validators
+
+	<form>
+		<input id="categoryName" name="categoryName">
+		<input id="description" name="description">
+	</form>
+
+	<div>
+		<form [formGroup]="userForm.uForm"> - FormGroup
+			<input id="userName" name="userName" formControlName="username"> - FormControl
+			<input id="name" name="name"> - FormControl
+			<input id="email" name="email"> - FormControl
+			<div [formGroup]="address"> - FormGroup
+				<input id="suite" name="suite"> - FormControl
+				<input id="city" name="city">
+
+				<div [formGroup]> - FormGroup
+					<input id="lat" name="lat"> - FormControl
+					<input id="lng" name="lng"> - FormControl
+				</div>
+			</div>
+		</form>
+
+	</div>
+
+class UserForm{
+
+	uForm:FormGroup = new FormGroup({
+		username: new FormControl(state, Validators.required),
+		email: new FormControl(state,[Validators.required, Validators.Email,..]),
+		name:: new FormControl(state, Validators.required),
+		address: new FormGroup({
+			zipcode:new FormControl(state,[Validators.required, Validators.minlength(6), Validators.maxlength(6)],
+			geo:new FormGroup({
+				lat:new FormControl(),
+				lng:new FormControl()
+			})
+		})
+	})
+}
+
+userForm:UserForm = new UserForm();
+
+
+
+
+Http Interceptors - 
+	Request Object
+	Response Object
+
+Router Guard - For Login
+
+	/login?returnUrl=/categories
+https://localhost:7030/Identity/Account/Login?ReturnUrl=%2FCategories%2FHome%2FCreate
+
+
+
+
+
+
+
+
